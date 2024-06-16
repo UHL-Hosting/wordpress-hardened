@@ -33,9 +33,6 @@ spec:
                 {{- with .Values.podLabels }}
                 {{- toYaml . | nindent 16 }}
                 {{- end }}
-                {{- if .Values.volumeSyncing.enabled }}
-                riotkit.org/volume-syncing-controller: "true"
-                {{- end }}
         spec:
             automountServiceAccountToken: false
             terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds | default "5" }}
@@ -238,6 +235,6 @@ spec:
                   configMap:
                       name: {{ include "wordpress-hardened.fullname" . }}-waf-custom-config
                 {{- end }}
-                {{- with .Values.pv.extraVolumes }}
-                {{- toYaml . | nindent 16 }}
-                {{- end }}
+                {{ with .Values.pv.extraVolumes }}
+                {{ toYaml . | nindent 16 }}
+                {{ end }}

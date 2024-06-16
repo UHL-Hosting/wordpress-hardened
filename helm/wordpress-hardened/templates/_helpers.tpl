@@ -72,9 +72,9 @@ Create the name of the service account to use
   mountPath: /var/www/riotkit/wp-content
 {{- end }}
 
-{{- with .Values.pv.extraVolumeMounts }}
-{{- toYaml . }}
-{{- end }}
+{{ with .Values.pv.extraVolumeMounts }}
+{{ toYaml . }}
+{{ end }}
 
 {{- end }}
 
