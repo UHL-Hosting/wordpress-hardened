@@ -9,7 +9,7 @@ ENV AUTO_UPDATE_CRON="0 5 * * TUE" \
     DISABLE_DIRECT_CONTENT_PHP_EXECUTION=false \
     BASIC_AUTH_USER=riotkit \
     BASIC_AUTH_PASSWORD=riotkit \
-    ASIC_AUTH_ENABLED=true \
+    BASIC_AUTH_ENABLED=false \
     PHP_DISPLAY_ERRORS="Off" \
     PHP_ERROR_REPORTING="E_ALL & ~E_DEPRECATED & ~E_STRICT" \
     PHP_POST_MAX_SIZE="32M" \
@@ -30,7 +30,7 @@ ENV AUTO_UPDATE_CRON="0 5 * * TUE" \
     WP_PLUGINS_REINSTALL_RETRIES=30
 
 # p2 (jinja2)
-RUN wget https://github.com/wrouesnel/p2cli/releases/download/r13/p2-linux-x86_64 -O /usr/bin/p2 && chmod +x /usr/bin/p2
+RUN wget https://github.com/wrouesnel/p2cli/releases/download/r19/p2-linux-x86_64 -O /usr/bin/p2 && chmod +x /usr/bin/p2
 
 # multirun (supervisord equivalent)
 RUN wget https://github.com/nicolas-van/multirun/releases/download/1.1.3/multirun-x86_64-linux-musl-1.1.3.tar.gz -O /tmp/multirun.tar.gz \
