@@ -72,7 +72,7 @@ $table_prefix = isset($_SERVER['WORDPRESS_TABLE_PREFIX']) ? $_SERVER['WORDPRESS_
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* That's all, stop editing! Happy publishing. */
 
