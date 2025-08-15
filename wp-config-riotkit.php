@@ -17,12 +17,11 @@ function get_virtual_host($hosts) {
 }
 
 function get_preferred_protocol ($url) {
-    // if (stripos($url, "://") !== false) {
-    //     return "";
-    // }
+    if (stripos($url, "://") !== false) {
+        return "";
+    }
 
-    // return str_ends_with($url, '.localhost') ? 'http://' : 'https://';
-    return "https://";
+    return str_ends_with($url, '.localhost') ? 'http://' : 'https://';
 }
 
 function wp_find_page_url() {
