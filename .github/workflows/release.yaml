@@ -26,8 +26,8 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                 context: .
-                push: false
                 tags: |
                   ghcr.io/${{ env.REPO }}:${{ github.sha }}
                   ghcr.io/${{ env.REPO }}:latest
                 cache-from: ghcr.io/${{ env.REPO }}:latest
+                push: true
