@@ -29,23 +29,22 @@ ENV AUTO_UPDATE_CRON="0 5 * * TUE" \
     WP_INSTALLATION_WAIT_INTERVAL=20 \
     WP_PLUGINS_REINSTALL_RETRIES=30
 
-# ---- p2 (pongo2/jinja2 CLI)
-ARG P2_VERSION=r19
-RUN set -eux; \
-    wget -qO- "https://github.com/wrouesnel/p2cli/releases/download/${P2_VERSION}/p2cli_${P2_VERSION}_linux-amd64.tar.gz" \
-    | tar -xz -C /usr/local/bin; \
-    chmod +x /usr/local/bin/p2
-# ref: p2cli releases :contentReference[oaicite:0]{index=0}
+# p2 (jinja2)
+RUN wget https://github.com/wrouesnel/p2cli/releases/download/r19/p2cli_r19_linux-amd64.tar.gz -O /tmp/p2.tar.gz \
+    && cd /tmp \
+    && tar xvf p2.tar.gz \
+    && rm p2.tar.gz \
+    && mv p* /usr/bin/p2 \
+    && chmod +x /usr/bin/p2
 
-# ---- multirun (supervisord-like init)
-ARG MULTIRUN_VERSION=1.1.3
-# auto-detect glibc vs musl to pick the right asset
-RUN set -eux; \
-    libc="gnu"; ldd --version 2>&1 | grep -qi musl && libc="musl"; \
-    wget -qO- "https://github.com/nicolas-van/multirun/releases/download/${MULTIRUN_VERSION}/multirun-x86_64-linux-${libc}-${MULTIRUN_VERSION}.tar.gz" \
-    | tar -xz -C /usr/local/bin; \
-    chmod +x /usr/local/bin/multirun
-# ref: multirun install & releases :contentReference[oaicite:1]{index=1}
+# multirun (supervisord equivalent)
+RUN wget https://github.com/nicolas-van/multirun/releases/download/1.1.3/multirun-x86_64-linux-musl-1.1.3.tar.gz -O /tmp/multirun.tar.gz \
+    && cd /tmp \
+    && tar xvf multirun.tar.gz \
+    && rm multirun.tar.gz \
+    && mv multir* /usr/bin/multirun \
+    && chmod +x /usr/bin/multirun
+
 
 RUN apk --update add nginx apache2-utils rsync less \
     && curl "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar" --output /usr/bin/wp \
