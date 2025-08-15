@@ -1,14 +1,14 @@
 <?php
 
-function str_ends_with($haystack, $needle) {
-    $length = strlen($needle);
+// function str_ends_with($haystack, $needle) {
+//     $length = strlen($needle);
 
-    if ($length == 0) {
-        return true;
-    }
+//     if ($length == 0) {
+//         return true;
+//     }
 
-    return (substr($haystack, -$length) === $needle);
-}
+//     return (substr($haystack, -$length) === $needle);
+// }
 
 // support for multiple values in eg. VIRTUAL_HOST, picks first one
 function get_virtual_host($hosts) {
