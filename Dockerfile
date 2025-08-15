@@ -34,7 +34,6 @@ ARG P2_VERSION=r19
 RUN set -eux; \
     wget -qO- "https://github.com/wrouesnel/p2cli/releases/download/${P2_VERSION}/p2cli_${P2_VERSION}_linux-amd64.tar.gz" \
     | tar -xz -C /usr/local/bin; \
-    mv /usr/local/bin/p2 /usr/local/bin/p2; \
     chmod +x /usr/local/bin/p2
 # ref: p2cli releases :contentReference[oaicite:0]{index=0}
 
