@@ -28,6 +28,6 @@ jobs:
                 context: .
                 push: false
                 tags: |
-                  ghcr.io/${{ env.REPO }}/wordpress-hardened:${{ github.sha }}
-                  ghcr.io/${{ env.REPO }}/wordpress-hardened:latest
-                  cache-from: ghcr.io/${{ env.REPO }}/wordpress-hardened:latest
+                  ghcr.io/${{ env.REPO }}:${{ github.sha }}
+                  ghcr.io/${{ env.REPO }}:latest
+                  # cache-from: ghcr.io/${{ env.REPO }}:latest
