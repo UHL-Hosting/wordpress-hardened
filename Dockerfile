@@ -34,7 +34,7 @@ RUN wget https://github.com/wrouesnel/p2cli/releases/download/r19/p2cli_r19_linu
     && cd /tmp \
     && tar xvf p2.tar.gz \
     && rm p2.tar.gz \
-    && mv p* /usr/bin/p2 \
+    && mv p2 /usr/bin/p2 \
     && chmod +x /usr/bin/p2
 
 # multirun (supervisord equivalent)
