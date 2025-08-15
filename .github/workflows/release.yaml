@@ -30,4 +30,3 @@ jobs:
                 tags: |
                   ghcr.io/${{ env.REPO }}:${{ github.sha }}
                   ghcr.io/${{ env.REPO }}:latest
-                  # cache-from: ghcr.io/${{ env.REPO }}:latest
