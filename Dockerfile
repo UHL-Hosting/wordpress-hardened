@@ -1,5 +1,13 @@
 FROM wordpress:6.8.2-php8.4-fpm-alpine
 
+# Set image metadata (OCI-compliant)
+LABEL org.opencontainers.image.authors="Omnis team <support@omnis.software>" \
+    org.opencontainers.image.title="WordPress" \
+    org.opencontainers.image.description="Custom WordPress image with PHP 8.3 Nginx based on Alpine" \
+    org.opencontainers.image.source="https://github.com/UHL-Hosting/wordpress-hardened/" \
+    org.opencontainers.image.version="1.0.0" \
+    org.opencontainers.image.licenses="GPL-2.0-only"
+
 # The credentials does not need to be top secret, at least those credentials needs to protect against automatic bots
 # default basic auth credentials: riotkit, riotkit
 # to change credentials just replace file "/opt/htpsswd" using volume mount or customized image
